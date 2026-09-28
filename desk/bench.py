@@ -39,6 +39,16 @@ DETAILED = (
 - другое: всё остальное; при сомнении выбирай «другое»."""
 )
 
+EXAMPLED = (
+    DETAILED
+    + """
+Примеры:
+Возникает ошибка при оплате в интернет магазине.
+платежи
+Когда будут зачислены средства после возврата товара? 
+возвраты"""
+)
+
 # Рассуждение. max_tokens кандидата должен быть больше budget_tokens
 THINKING = {"thinking": {"type": "enabled", "budget_tokens": 1024}}
 
@@ -58,6 +68,7 @@ CANDIDATES = [
     Candidate("короткая постановка", SHORT),
     Candidate("постановка с правилами", DETAILED),
     Candidate("правила + рассуждение", DETAILED, body=THINKING, max_tokens=2048),
+    Candidate("постановка с разобранными обращениями", EXAMPLED),
 ]
 
 
